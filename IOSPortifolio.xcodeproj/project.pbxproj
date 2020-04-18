@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,8 +20,8 @@
 		CC8FAE74244A78E3003CA30C /* IOSPortifolioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE73244A78E3003CA30C /* IOSPortifolioUITests.swift */; };
 		CC8FAE83244A7A55003CA30C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE82244A7A55003CA30C /* LoginVC.swift */; };
 		CC8FAE85244A7A6B003CA30C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAE84244A7A6B003CA30C /* Login.storyboard */; };
-		CC8FAE8A244A7CDB003CA30C /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE88244A7CDB003CA30C /* UserInfoVC.swift */; };
-		CC8FAE8B244A7CDB003CA30C /* UserInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAE89244A7CDB003CA30C /* UserInfoVC.xib */; };
+		CC8FAE8A244A7CDB003CA30C /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE88244A7CDB003CA30C /* UserInfoView.swift */; };
+		CC8FAE8B244A7CDB003CA30C /* UserInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAE89244A7CDB003CA30C /* UserInfo.xib */; };
 		CC8FAE8E244A7E5A003CA30C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE8D244A7E5A003CA30C /* UIViewExtensions.swift */; };
 		CC8FAE90244A8063003CA30C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE8F244A8063003CA30C /* StringExtension.swift */; };
 		CC8FAE9A244A8295003CA30C /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE92244A8294003CA30C /* CoreDataUtils.swift */; };
@@ -34,6 +34,8 @@
 		CC8FAEA1244A8295003CA30C /* CustomObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAE99244A8295003CA30C /* CustomObservable.swift */; };
 		CC8FAEA7244A83F3003CA30C /* Console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAEA5244A83F3003CA30C /* Console.storyboard */; };
 		CC8FAEA8244A83F3003CA30C /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FAEA6244A83F3003CA30C /* ConsoleViewController.swift */; };
+		CC8FD0F9244ACCA6006B8915 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FD0F8244ACCA6006B8915 /* LoginResponse.swift */; };
+		CC8FD0FC244AD7A8006B8915 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8FD0FB244AD7A8006B8915 /* NetworkLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +81,8 @@
 		CC8FAE75244A78E3003CA30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8FAE82244A7A55003CA30C /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CC8FAE84244A7A6B003CA30C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		CC8FAE88244A7CDB003CA30C /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
-		CC8FAE89244A7CDB003CA30C /* UserInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoVC.xib; sourceTree = "<group>"; };
+		CC8FAE88244A7CDB003CA30C /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		CC8FAE89244A7CDB003CA30C /* UserInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfo.xib; sourceTree = "<group>"; };
 		CC8FAE8D244A7E5A003CA30C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		CC8FAE8F244A8063003CA30C /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CC8FAE92244A8294003CA30C /* CoreDataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		CC8FAE99244A8295003CA30C /* CustomObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomObservable.swift; sourceTree = "<group>"; };
 		CC8FAEA5244A83F3003CA30C /* Console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Console.storyboard; sourceTree = "<group>"; };
 		CC8FAEA6244A83F3003CA30C /* ConsoleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
+		CC8FD0F8244ACCA6006B8915 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		CC8FD0FB244AD7A8006B8915 /* NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,9 @@
 		CC8FAE50244A78DF003CA30C /* IOSPortifolio */ = {
 			isa = PBXGroup;
 			children = (
+				CC8FD0FA244AD629006B8915 /* NetworkLayer */,
+				CC8FD0F7244ACC83006B8915 /* Models */,
+				CC8FD0F4244ABFD0006B8915 /* LaunchScreen */,
 				CC8FAEA4244A83F3003CA30C /* Console */,
 				CC8FAE91244A827E003CA30C /* Utils */,
 				CC8FAE8C244A7DAC003CA30C /* Extensions */,
@@ -159,7 +166,6 @@
 				CC8FAE55244A78DF003CA30C /* ViewController.swift */,
 				CC8FAE57244A78DF003CA30C /* Main.storyboard */,
 				CC8FAE5A244A78E3003CA30C /* Assets.xcassets */,
-				CC8FAE5C244A78E3003CA30C /* LaunchScreen.storyboard */,
 				CC8FAE5F244A78E3003CA30C /* Info.plist */,
 			);
 			path = IOSPortifolio;
@@ -202,8 +208,8 @@
 		CC8FAE87244A7B9D003CA30C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CC8FAE88244A7CDB003CA30C /* UserInfoVC.swift */,
-				CC8FAE89244A7CDB003CA30C /* UserInfoVC.xib */,
+				CC8FAE88244A7CDB003CA30C /* UserInfoView.swift */,
+				CC8FAE89244A7CDB003CA30C /* UserInfo.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +247,30 @@
 			path = Console;
 			sourceTree = "<group>";
 		};
+		CC8FD0F4244ABFD0006B8915 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CC8FAE5C244A78E3003CA30C /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		CC8FD0F7244ACC83006B8915 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC8FD0F8244ACCA6006B8915 /* LoginResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC8FD0FA244AD629006B8915 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CC8FD0FB244AD7A8006B8915 /* NetworkLayer.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		CE3EA866B73FAB3F45A17348 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +281,6 @@
 				6BC57C16344979C959888918 /* Pods-IOSPortifolioTests.debug.xcconfig */,
 				17070472E80D262AA7E85A69 /* Pods-IOSPortifolioTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -378,7 +407,7 @@
 				CC8FAE5E244A78E3003CA30C /* LaunchScreen.storyboard in Resources */,
 				CC8FAEA7244A83F3003CA30C /* Console.storyboard in Resources */,
 				CC8FAE5B244A78E3003CA30C /* Assets.xcassets in Resources */,
-				CC8FAE8B244A7CDB003CA30C /* UserInfoVC.xib in Resources */,
+				CC8FAE8B244A7CDB003CA30C /* UserInfo.xib in Resources */,
 				CC8FAE59244A78DF003CA30C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +539,7 @@
 				CC8FAEA0244A8295003CA30C /* Reachability.swift in Sources */,
 				CC8FAEA1244A8295003CA30C /* CustomObservable.swift in Sources */,
 				CC8FAE9E244A8295003CA30C /* FirebaseUtils.swift in Sources */,
+				CC8FD0FC244AD7A8006B8915 /* NetworkLayer.swift in Sources */,
 				CC8FAE8E244A7E5A003CA30C /* UIViewExtensions.swift in Sources */,
 				CC8FAE9D244A8295003CA30C /* Logger.swift in Sources */,
 				CC8FAE90244A8063003CA30C /* StringExtension.swift in Sources */,
@@ -522,7 +552,8 @@
 				CC8FAE9F244A8295003CA30C /* PropertyStorage.swift in Sources */,
 				CC8FAE54244A78DF003CA30C /* SceneDelegate.swift in Sources */,
 				CC8FAE9C244A8295003CA30C /* XibView.swift in Sources */,
-				CC8FAE8A244A7CDB003CA30C /* UserInfoVC.swift in Sources */,
+				CC8FD0F9244ACCA6006B8915 /* LoginResponse.swift in Sources */,
+				CC8FAE8A244A7CDB003CA30C /* UserInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
