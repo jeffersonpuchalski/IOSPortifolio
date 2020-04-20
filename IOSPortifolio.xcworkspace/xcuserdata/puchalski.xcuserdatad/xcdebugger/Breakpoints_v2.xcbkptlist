@@ -7,32 +7,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "382FF60C-3E14-429A-980C-1DD664C54339"
+            uuid = "C84F14FE-5B1F-41E0-B0D7-6266BDC276B2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOSPortifolio/Utils/XibView.swift"
+            filePath = "IOSPortifolio/Utils/Keychain/KeychainManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "loadViewFromNib()"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "saveCrypto(_:forKey:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CCCF36E5-850A-4570-9076-52E91F927597"
+            uuid = "1A8476C3-C14B-402F-A790-CF23D51D6CF5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOSPortifolio/Utils/XibView.swift"
+            filePath = "IOSPortifolio/Utils/Keychain/KeychainManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "xibSetup()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "save(_:forKey:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4055701-0B7F-4FB0-A7E9-9746186F046D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSPortifolio/Scenes/Home/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getUserRepos(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1488D659-07AA-4804-A8E8-213915AF1699"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSPortifolio/Scenes/Home/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1488D659-07AA-4804-A8E8-213915AF1699 - 693f0d251f92d54f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IOSPortifolio.HomeVC.viewDidLoad() -&gt; ()"
+                  moduleName = "IOSPortifolio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/puchalski/Dev/portifolio/IOSPortifolio/IOSPortifolio/Scenes/Home/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "743">
+               </Location>
+               <Location
+                  uuid = "1488D659-07AA-4804-A8E8-213915AF1699 - 72660821c33b904a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;IOSPortifolio.RepositoryResponse&gt;&gt;, IOSPortifolio.TechnicalError&gt;) -&gt; () in IOSPortifolio.HomeVC.viewDidLoad() -&gt; ()"
+                  moduleName = "IOSPortifolio"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/puchalski/Dev/portifolio/IOSPortifolio/IOSPortifolio/Scenes/Home/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEE3CF79-D86C-4499-AD1A-45D7A06FAC82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSPortifolio/Network/NetworkLayer/NetworkLayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "getValue(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "155955F2-CC55-4B76-A195-08A1F57D5FBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOSPortifolio/Network/NetworkLayer/NetworkLayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "request(_:httpMode:model:onCompletion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

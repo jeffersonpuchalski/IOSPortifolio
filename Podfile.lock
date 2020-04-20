@@ -49,6 +49,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (6.5.2)"
   - GoogleUtilities/UserDefaults (6.5.2):
     - GoogleUtilities/Logger
+  - IQKeyboardManagerSwift (6.5.5)
   - KeychainSwift (19.0.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -57,11 +58,14 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
+  - RxSwift (5.1.1)
 
 DEPENDENCIES:
   - CryptoSwift
   - Firebase/RemoteConfig
+  - IQKeyboardManagerSwift
   - KeychainSwift
+  - RxSwift
 
 SPEC REPOS:
   trunk:
@@ -78,10 +82,12 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - IQKeyboardManagerSwift
     - KeychainSwift
     - nanopb
     - PromisesObjC
     - Protobuf
+    - RxSwift
 
 SPEC CHECKSUMS:
   CryptoSwift: 1283821600233bdbeb96d7b389c3288c3bf77211
@@ -97,11 +103,13 @@ SPEC CHECKSUMS:
   GoogleDataTransport: b29a21d813e906014ca16c00897827e40e4a24ab
   GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: b32a21857aa916b8033fa146a59f8e19bab4b018
+PODFILE CHECKSUM: 23c5483ce379612cf907fae38e0d432a92f9e4fe
 
 COCOAPODS: 1.9.1
