@@ -9,6 +9,9 @@ target 'IOSPortifolio' do
   pod "Firebase/RemoteConfig"
   pod 'CryptoSwift'
   pod 'KeychainSwift'
+  pod 'RxSwift'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'IOSPortifolioTests' do
     inherit! :search_paths

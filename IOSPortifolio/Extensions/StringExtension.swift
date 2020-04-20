@@ -44,5 +44,49 @@ extension String {
         let pattern2 = "00000111112222233333444445555566666777778888899999"
         return !pattern.contains(self) && !pattern2.contains(self)
     }
+    
+    /**
+     Check if a number is a valid cellphone.
+     
+     This validation follow the Brazilian number's validations.
+     */
+    func isValidCellPhoneNumber() -> Bool {
+        let phoneRegEx = "^(\\d{2})([6-9])(\\d{4})(\\d{4})"
+        let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return phoneTest.evaluate(with: self)
+    }
+    
+    /**
+     Check if a number is a valid phone.
+     
+     This validation follow the Brazilian number's validations.
+     */
+    func isValidPhoneNumber() -> Bool {
+        let phoneRegEx = "^(\\d{2})([0-5])(\\d{3})(\\d{4})"
+        let phoneTest = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return phoneTest.evaluate(with: self)
+    }
+    
+    /**
+     Check if a string is a valid email.
+     - Returns: True if email is valid, otherwise false.
+     */
+    func isValidEmail() -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: self)
+    }
+    
+    
+    func isValidName() -> Bool {
+        let nameRegex = "^(?![ ])(?!.*[ ]{2})((?:e|da|do|das|dos|de|d'|D'|la|las|el|los)\\s*?|(?:[A-Z][^\\s]*\\s*?)(?!.*[ ]$))+$"
+        let nameTest = NSPredicate(format:"SELF MATCHES %@", nameRegex)
+        return nameTest.evaluate(with: self)
+    }
+    
+    func removeAllMaskCharacters() -> String {
+        return self.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\"", with: "")
+    }
+    
 }
 
