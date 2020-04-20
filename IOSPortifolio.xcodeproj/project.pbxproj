@@ -52,6 +52,7 @@
 		CCE2065E244D4527004BC311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAE5C244A78E3003CA30C /* LaunchScreen.storyboard */; };
 		CCE2065F244D4533004BC311 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8FAE57244A78DF003CA30C /* Home.storyboard */; };
 		CCE20660244D454A004BC311 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDA8778244CBCCF00ABF822 /* Urls.plist */; };
+		CCE20662244D4D89004BC311 /* System-Messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCE20661244D4D89004BC311 /* System-Messages.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		CCE20653244D2D21004BC311 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CCE20655244D2F17004BC311 /* RepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryResponse.swift; sourceTree = "<group>"; };
 		CCE20657244D351B004BC311 /* UserRepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoCell.swift; sourceTree = "<group>"; };
+		CCE20661244D4D89004BC311 /* System-Messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "System-Messages.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				CC8FAE55244A78DF003CA30C /* ViewController.swift */,
 				CC8FAE5C244A78E3003CA30C /* LaunchScreen.storyboard */,
 				CC8FAE5A244A78E3003CA30C /* Assets.xcassets */,
+				CCE20661244D4D89004BC311 /* System-Messages.plist */,
 				CC8FAE5F244A78E3003CA30C /* Info.plist */,
 			);
 			path = IOSPortifolio;
@@ -547,6 +550,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE20662244D4D89004BC311 /* System-Messages.plist in Resources */,
 				CCE20660244D454A004BC311 /* Urls.plist in Resources */,
 				CCE2065F244D4533004BC311 /* Home.storyboard in Resources */,
 				CCE2065E244D4527004BC311 /* LaunchScreen.storyboard in Resources */,

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>error_unavaliable_server</key>
+	<string>Servico indisponivel, Tente novamente mais tarde.</string>
+	<key>error_card_password</key>
+	<string>Senha do cartão inválida</string>
+	<key>error_network_unreached</key>
+	<string>Não foi detectado sinal de internet para seu telefone. Tente novamente mais tarde.</string>
+	<key>error_login_unauthorized</key>
+	<string>Usuário ou senha inválidos</string>
+	<key>error_not_forward</key>
+	<string>A mensagem não foi encaminhada</string>
+	<key>google_api_key</key>
+	<string>AIzaSyD8l3qXXBsLH7Td04op4gPKfcMVfp8Xdz4</string>
+</dict>
+</plist>

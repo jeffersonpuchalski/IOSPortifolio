@@ -7,26 +7,64 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeVC: ViewController {
     //MARK: - Variables
     var homeViewModel: HomeViewModel = HomeViewModel()
     var repoList = [RepositoryResponse]()
-
+    @StorageCodable(key: "userInfo", defaultValue: UserResponse())
+    var userInfo: UserResponse
     
     //MARK: - IBOutlets
+    @IBOutlet weak var headInfoView: UserInfoView!
     @IBOutlet weak var repositoryTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.repositoryTableView.delegate = self
-        self.repositoryTableView.dataSource = self.repoList as? UITableViewDataSource
+        self.repositoryTableView.dataSource = self
+        
+     let headView = UINib(nibName: "UserInfo", bundle:Bundle.main).instantiate(withOwner: self, options: nil).first as! UserInfoView
+          
+        headView.setup(userName: userInfo.login ?? "", fullName: userInfo.name ?? "")
+        self.headInfoView.addSubview(headView)
+        
+        let url = URL(string:userInfo.avatarUrl ?? "")
+        let processor = DownsamplingImageProcessor(size: headView.portraitImageView.bounds.size)
+            |> RoundCornerImageProcessor(cornerRadius: 20)
+        headView.portraitImageView.kf.indicatorType = .activity
+        headView.portraitImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "ic_Octo"),
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+        {
+            result in
+            switch result {
+            case .success(let value):
+                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
+       
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.homeViewModel.getUserRepos { result in
             switch result {
             case .success(let userRepo):
                 DispatchQueue.main.async {
-                    self.repoList = userRepo!
+                    self.repoList = userRepo
                     self.repositoryTableView.reloadData()
                 }
                 break

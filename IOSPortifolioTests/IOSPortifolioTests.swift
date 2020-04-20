@@ -18,12 +18,30 @@ class IOSPortifolioTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
+    func testCNPJMask() {
+           // Variables
+           let cnpjUnmaskGood = "08936555000151" //08.936.555/0001-51
+           let cnpjMaskedGood = "08.936.555/0001-51" //08.936.555/0001-51
+           
+           //1
+           // Check unmask cpfs
+           let unmaskedGood = cnpjMaskedGood.removeAllMaskCharacters()
+           XCTAssertTrue(cnpjUnmaskGood == unmaskedGood, "Failed -> The cnpj must be exactly equal to his unmask version")
+       }
+       
+       func testCPFMask(){
+           // Variables and setters
+           let cpnjmaskedGood = "094.003.956-71"
+           let cpnjUnMaskedGood = "09400395671"
+           
+           //1
+           // Check unmask cpfs
+           let unmaskedGood = cpnjmaskedGood.removeAllMaskCharacters()
+           XCTAssertTrue(unmaskedGood == cpnjUnMaskedGood, "Failed -> The CNPJ must be exactly equal to his unmask version") //
+       }
+       
+      
+       
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

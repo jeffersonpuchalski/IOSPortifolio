@@ -11,6 +11,7 @@ target 'IOSPortifolio' do
   pod 'KeychainSwift'
   pod 'RxSwift'
   pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'IOSPortifolioTests' do
     inherit! :search_paths

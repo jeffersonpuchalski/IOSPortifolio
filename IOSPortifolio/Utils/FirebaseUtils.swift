@@ -39,13 +39,13 @@ class FirebaseUtils {
         - key: A indentifier key to retrive the value from firebase cloud or for his default value.
         - typeOfValue: This is a arg passed by reference, used to insert the correct message type in given parameter.
     */
-    public func SetValueByRemote<T>(key: String, typeOfValue: inout T) {
+    public func SetValueByRemote<T>(key: String, typeOfValue: inout T?) {
         if(type(of: typeOfValue) == Bool.self){
-            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).boolValue as! T
+            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).boolValue as? T
         } else if(type(of: typeOfValue) == String.self){
-            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).stringValue as! T
+            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).stringValue as? T
         } else if(type(of: typeOfValue) == NSNumber.self){
-            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).numberValue as! T
+            typeOfValue = RemoteConfig.remoteConfig().configValue(forKey: key).numberValue as? T
         }
     }
     

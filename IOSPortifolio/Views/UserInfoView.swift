@@ -11,13 +11,16 @@ import UIKit
 class UserInfoView: UIView {
     
     @IBOutlet weak var fullNameLabel: UILabel!
-    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var portraitImageView: UIImageView!
     
-    func setup(userName: String, portrait: UIImage) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func setup(userName: String, fullName: String) {
         self.userNameLabel.text = userName
-        self.portraitImageView.image = portrait
+        self.fullNameLabel.text = fullName
     }
     
     override init(frame: CGRect) {

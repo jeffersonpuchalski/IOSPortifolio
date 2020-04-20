@@ -48,9 +48,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <connections>
-                <outlet property="fullNameLabel" destination="DjQ-Ov-Sf6" id="L9Y-8c-UCH"/>
-                <outlet property="portraitImageView" destination="beL-ZX-L8A" id="mgf-9U-BSN"/>
-                <outlet property="userNameLabel" destination="8iL-3E-Xxl" id="8Yf-zJ-GKC"/>
+                <outlet property="fullNameLabel" destination="DjQ-Ov-Sf6" id="G5A-Qo-IUY"/>
+                <outlet property="portraitImageView" destination="beL-ZX-L8A" id="n7L-2V-IHP"/>
+                <outlet property="userNameLabel" destination="8iL-3E-Xxl" id="80c-xZ-bU0"/>
             </connections>
             <point key="canvasLocation" x="102.17391304347827" y="-142.63392857142856"/>
         </view>

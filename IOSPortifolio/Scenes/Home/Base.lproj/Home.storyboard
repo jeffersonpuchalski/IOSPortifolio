@@ -15,15 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p12-7V-Aap" userLabel="headInfo" customClass="XibView" customModule="IOSPortifolio" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p12-7V-Aap" userLabel="headInfo" customClass="UserInfoView" customModule="IOSPortifolio" customModuleProvider="target">
                                 <rect key="frame" x="20" y="52" width="374" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Adm-Gb-8Bo"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="nibName" value="UserInfo"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Q7R-LC-3Jg">
                                 <rect key="frame" x="20" y="148" width="374" height="748"/>
@@ -130,28 +127,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" badgeValue="1" selectedImage="house.fill" id="61w-wf-6fh"/>
                     <connections>
+                        <outlet property="headInfoView" destination="p12-7V-Aap" id="D3v-02-KLv"/>
                         <outlet property="repositoryTableView" destination="Phu-Ys-vnT" id="HGh-Ha-ZCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
-        </scene>
-        <!--Follower-->
-        <scene sceneID="TQZ-UD-air">
-            <objects>
-                <viewController id="Ce4-5q-Knf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tDv-un-c6T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="eSL-FV-pNg"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Follower" image="person.crop.circle" catalog="system" badgeValue="1" selectedImage="person.crop.circle.fill" id="Zv2-aE-dNq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhd-U5-DK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1993" y="113"/>
         </scene>
         <!--Main TabVC-->
         <scene sceneID="nN2-Q9-7pE">
@@ -165,18 +147,26 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nr7-Xg-VY9"/>
-                        <segue destination="Ce4-5q-Knf" kind="relationship" relationship="viewControllers" id="8kY-RK-U0E"/>
+                        <segue destination="jyz-MT-goR" kind="relationship" relationship="viewControllers" id="I6t-VT-JIH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6U-iY-ZU9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="nTC-lF-V0E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="jyz-MT-goR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ZMa-h5-cQj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YId-Ru-wc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="-319"/>
+        </scene>
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

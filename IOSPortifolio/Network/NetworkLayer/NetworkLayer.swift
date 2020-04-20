@@ -24,7 +24,7 @@ protocol ServiceLayer {
      */
     func request<T: Codable>(_ endpoint: Endpoint,httpMode: httpMode, model: T, onCompletion handler: @escaping (_ job: Result<T?, TechnicalError>) -> Void)
     
-    func request<T: Codable>(_ endpoint: Endpoint,httpMode: httpMode, model: T, onCompletion handler: @escaping (_ job: Result<[T], TechnicalError>) -> Void)
+    func requestArray<T: Codable>(_ endpoint: Endpoint,httpMode: httpMode, model: T, onCompletion handler: @escaping (_ job: Result<[T], TechnicalError>) -> Void)
 }
 
 //MARK: - Class
@@ -66,13 +66,15 @@ class NetworkLayer :  ServiceLayer {
             if(error != nil) {
                 // Parse error
                 let errMap = error as! URLError
-                switch errMap.code {
-                case URLError.cannotFindHost:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.cannotFindHost)))
-                case URLError.cannotConnectToHost:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
-                default:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+                DispatchQueue.main.async {
+                    switch errMap.code {
+                    case URLError.cannotFindHost:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.cannotFindHost)))
+                    case URLError.cannotConnectToHost:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+                    default:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+                    }
                 }
             }
             
@@ -131,8 +133,8 @@ class NetworkLayer :  ServiceLayer {
         task.resume()
         
     }
-    
-    func request<T>(_ endpoint: Endpoint, httpMode: httpMode, model: T, onCompletion handler: @escaping (Result<[T], TechnicalError>) -> Void) where T : Decodable, T : Encodable {
+    //MARK: - Array Request
+    func requestArray<T>(_ endpoint: Endpoint, httpMode: httpMode, model: T, onCompletion handler: @escaping (Result<[T], TechnicalError>) -> Void) where T : Decodable, T : Encodable {
         
         // 1
         // Prepare url for service
@@ -152,71 +154,74 @@ class NetworkLayer :  ServiceLayer {
         // 4
         // Make request call
         let task = URLSession.shared.dataTask(with: requestUrl) { data, res, error in
-            
-            // Internal iOS net erro codes.
-            if(error != nil) {
-                // Parse error
-                let errMap = error as! URLError
-                switch errMap.code {
-                case URLError.cannotFindHost:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.cannotFindHost)))
-                case URLError.cannotConnectToHost:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
-                default:
-                    return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+            DispatchQueue.main.async {
+                // Internal iOS net erro codes.
+                if(error != nil) {
+                    // Parse error
+                    let errMap = error as! URLError
+                    switch errMap.code {
+                    case URLError.cannotFindHost:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.cannotFindHost)))
+                    case URLError.cannotConnectToHost:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+                    default:
+                        return handler(.failure(TechnicalError.init(userMessage: "Estamos passando por problemas técnicos, Tente novamente mais tarde!",netError: NetworkError.genericError)))
+                    }
                 }
-            }
-            
-            // Parse response
-            if res != nil {
-                let httpResponse = res as! HTTPURLResponse
-                // Debug response
-                print("Raw endpoint: \(String(describing: res?.url))\nData result: \(String(data: data!, encoding: String.Encoding.utf8) ?? "nil")")
-                // parse code.
-                switch httpResponse.statusCode {
-                    
-                case 404:
-                    do {
-                        let response = try JSONDecoder().decode(ServerError.self, from: data!)
-                        return handler(.failure(TechnicalError.init(userMessage: response.message ?? "", netError: .unauthorized)))
+                
+                // Parse response
+                if res != nil {
+                    let httpResponse = res as! HTTPURLResponse
+                    // Debug response
+                    print("Raw endpoint: \(String(describing: res?.url))\nData result: \(String(data: data!, encoding: String.Encoding.utf8) ?? "nil")")
+                    // parse code.
+                    switch httpResponse.statusCode {
+                        
+                    case 404:
+                        do {
+                            let response = try JSONDecoder().decode(ServerError.self, from: data!)
+                            return handler(.failure(TechnicalError.init(userMessage: response.message ?? "", netError: .unauthorized)))
+                        }
+                        catch {
+                            return handler(.failure(TechnicalError.init(netError: .genericError)))
+                        }
+                        
+                    case 400:
+                        return handler(.failure(TechnicalError.init(netError: .badEndpoint)))
+                        
+                    case 401:
+                        do {
+                            let response = try JSONDecoder().decode(ServerError.self, from: data!)
+                            return handler(.failure(TechnicalError.init(userMessage: response.message ?? "", message: response.message ?? "", netError: .unauthorized)))
+                        }
+                        catch {
+                            print(error)
+                            return handler(.failure(TechnicalError.init(netError: .genericError)))
+                        }
+                        
+                    case 405:
+                        return handler(.failure(TechnicalError.init(netError: .badEndpoint)))
+                        
+                    case 500...999:
+                        return handler(.failure(TechnicalError.init(netError: .serverError)))
+                        
+                    case 200...399:
+                        do {
+                            let response = try JSONDecoder().decode([T].self, from: data!)
+                            return handler(.success(response))
+                        }
+                        catch {
+                            DispatchQueue.main.async {
+                                print(error)
+                                return handler(.success([]))
+                            }
+                        }
+                    default:
+                        return handler(.failure(TechnicalError.init(netError: .serverError)))
                     }
-                    catch {
-                        return handler(.failure(TechnicalError.init(netError: .genericError)))
-                    }
-                    
-                case 400:
+                } else {
                     return handler(.failure(TechnicalError.init(netError: .badEndpoint)))
-                    
-                case 401:
-                    do {
-                        let response = try JSONDecoder().decode(ServerError.self, from: data!)
-                        return handler(.failure(TechnicalError.init(userMessage: response.message ?? "", message: response.message ?? "", netError: .unauthorized)))
-                    }
-                    catch {
-                        print(error)
-                        return handler(.failure(TechnicalError.init(netError: .genericError)))
-                    }
-                    
-                case 405:
-                    return handler(.failure(TechnicalError.init(netError: .badEndpoint)))
-                    
-                case 500...999:
-                    return handler(.failure(TechnicalError.init(netError: .serverError)))
-                    
-                case 200...399:
-                    do {
-                        let response = try JSONDecoder().decode([T].self, from: data!)
-                        return handler(.success(response))
-                    }
-                    catch {
-                        print(error)
-                        return handler(.success([]))
-                    }
-                default:
-                    return handler(.failure(TechnicalError.init(netError: .serverError)))
                 }
-            } else {
-                return handler(.failure(TechnicalError.init(netError: .badEndpoint)))
             }
         }
         task.resume()
@@ -242,10 +247,14 @@ class NetworkLayer :  ServiceLayer {
         var url: URL = endpoint.url!
         
         // Append path params
-        for item in endpoint.pathParams {
-            url = url.appendingPathComponent(item)
+        if endpoint.pathParams == nil{
+            return url
+        } else {
+            for item in endpoint.pathParams ?? []{
+                url = url.appendingPathComponent(item)
+            }
+            return url
         }
-        return url
     }
     
     /**
@@ -286,8 +295,11 @@ class NetworkLayer :  ServiceLayer {
             print(token)
             #endif
             
+            let loginData = token.data(using: String.Encoding.utf8)!
+            let base64LoginString = loginData.base64EncodedString()
+            
             if token != ""{
-                finalUrl.addValue(token, forHTTPHeaderField: "X-Auth-Token")
+                finalUrl.addValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
             } else {
                 print("Skiping X-Auth-Token header injection!")
             }
@@ -390,7 +402,7 @@ struct Endpoint {
     let queryItems: [URLQueryItem]
     
     /// Path params to be appended.
-    let pathParams: [String]
+    let pathParams: [String]?
     
     /// Base url to be injected
     let baseURL: String
@@ -425,6 +437,28 @@ struct Endpoint {
             return T.self as! T
         }
     }
+    
+    static func getValue(for keyIdentifier: String, args: [String : String]) -> String{
+        let plistManager = PListManager()
+        do{
+            let dict = try plistManager.loadPlistToDictonary(for: "Urls")
+            var result: String = dict[keyIdentifier] as! String
+            for (key, value) in args {
+                result = result.replacingOccurrences(of: "{\(key)}", with: value)
+            }
+            return result
+        } catch PListManagerError.FilePathNotExist{
+            print(PListManagerError.FilePathNotExist)
+            return ""
+        } catch PListManagerError.DictionaryNotBind{
+            print(PListManagerError.FilePathNotExist)
+            return ""
+        } catch {
+            print("Unknow error")
+            return ""
+        }
+    }
+    
     
     /**
      Get a host name from given plist in Main bundle.
@@ -486,7 +520,7 @@ extension Endpoint {
         if port > 0 {
             components.port = port
         }
-        components.path = path
+        components.path = baseURL + path
         components.queryItems = queryItems
         
         return components.url

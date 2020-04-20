@@ -71,50 +71,50 @@ class AlertDialogManager {
     }
     
     static func ShowError(_ error: TechnicalError, _ vc: UIViewController){
-        var message: String = ""
+        var message: String? = ""
         switch error.netError {
             
         case .invalidURL:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "error_invalid_url", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .badRequest:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "error_server_bad_request", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .badEndpoint:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "error_server_bad_endpoint", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .cannotFindHost:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "error_unavaliable_server", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .genericError:
             message = error.userMessage ?? ""
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .notFound:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "error_server_not_found", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .serverError:
             FirebaseUtils.sharedRemoteInstance.SetValueByRemote(key: "", typeOfValue: &message)
             
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .unauthorized:
             message = error.userMessage ?? ""
-            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
             break
         case .none:
             message = error.userMessage ?? ""
-                       AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message, handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
+            AlertDialogManager.ShowAlertDialog(title: "Desculpe", message: message ?? "", handler: UIAlertAction.init(title: "OK", style: .default, handler: nil), vc)
         }
     }
 }
